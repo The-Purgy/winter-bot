@@ -332,5 +332,5 @@ async def sentiment_response(message):
             await message.channel.send(f"Hello {message.author.mention}!")
 
 
-# Run the bot with your token (replace 'TOKEN' with your bot's token)
+# Get token from .env file
 bot.run(os.getenv('TOKEN'))
