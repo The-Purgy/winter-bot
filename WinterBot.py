@@ -302,9 +302,19 @@ def deteriorate_points():
         days_inactive = (datetime.date.today() - last_active).days
 
         if days_inactive > 7:
-            points_to_remove = (days_inactive - 7) * 5
+            # Calculate the number of days the user has been inactive beyond 7 days
+            # since the last deterioration
+            if 'days_inactive_beyond_7' not in user_data:
+                user_data['days_inactive_beyond_7'] = 0
+
+            days_inactive_beyond_7 = days_inactive - 7
+            points_to_remove = (days_inactive_beyond_7 - user_data.get('days_inactive_beyond_7', 0)) * 5
+
             print(f"Decreasing {user_data['name']}'s points by {points_to_remove}")
             user_data['points'] = max(0, user_data['points'] - points_to_remove)
+
+            # Update the number of days the user has been inactive beyond 7 days
+            user_data['days_inactive_beyond_7'] = days_inactive_beyond_7
 
     activity_data['last_deterioration'] = datetime.date.today().isoformat()
     save_activity_data(activity_data)
