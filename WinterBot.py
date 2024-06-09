@@ -44,7 +44,7 @@ async def play_game(message):
         if game_name == 'rock paper scissors':
             await rock_paper_scissors(message)
         else:
-            await message.channel.send(f"Sorry, I don't know how to play {game_name} yet!")
+            await message.channel.send(f"Sorry, Winter doesn't know how to play {game_name} yet!")
 
     except asyncio.TimeoutError:
         await message.channel.send("You took too long to respond!")
@@ -52,11 +52,11 @@ async def play_game(message):
 
 async def how_are_you(message):
     responses = [
-        "I'm doing great, thanks for asking!",
-        "I'm feeling a little glitchy today, but I'll survive.",
-        "I'm doing fantastic! Just hanging out and waiting for someone to play with.",
-        "I'm a bot, so I don't really have feelings, but I'm functioning properly, so that's good, right?",
-        "I'm super duper awesome, thanks for asking!"
+        "Winter's doing great, thanks for asking!",
+        "Winter's feeling a little glitchy today, but Winter will survive.",
+        "Winter's doing fantastic! Just hanging out and waiting for someone to play with.",
+        "Winter's a bot, so Winter doesn't really have feelings, but Winter's functioning properly, so that's good, right?",
+        "Winter's super duper awesome, thanks for asking!"
     ]
     await message.channel.send(random.choice(responses))
 
@@ -173,7 +173,7 @@ async def on_message(message):
                 'Without a doubt',
                 'Yes definitely',
                 'You may rely on it',
-                'As I see it, yes',
+                'As Winter sees it, yes',
                 'Most likely',
                 'Outlook good',
                 'Yes',
@@ -184,8 +184,8 @@ async def on_message(message):
                 'Cannot predict now',
                 'Concentrate and ask again',
                 'Don\'t count on it',
-                'My reply is no',
-                'My sources say no',
+                'Winter\'s reply is no',
+                'Winter\'s sources say no',
                 'Outlook not so good',
                 'Very doubtful'
             ]
@@ -224,7 +224,7 @@ async def rock_paper_scissors(message):
              (user_choice == 'scissors' and bot_choice == 'paper'):
             await message.channel.send("You win! Congratulations!")
         else:
-            await message.channel.send("I win! Yay!")
+            await message.channel.send("Winter wins! Yay!")
     except asyncio.TimeoutError:
         await message.channel.send("You took too long to respond!")
 
